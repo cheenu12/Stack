@@ -1,0 +1,63 @@
+//  valid brackets
+
+// gfg link : https://practice.geeksforgeeks.org/problems/valid-expression1025/1
+
+#include <iostream>
+#include<stack>
+using namespace std;
+
+bool validbrackets(string &s, int size)
+{
+
+  stack<char> s1;
+for(int i =0 ;i<size ; i++)
+  {
+char ch = s[i];
+      if(ch == '[' || ch == '{'|| ch=='(')
+      {
+        s1.push(ch);
+    
+      }
+
+
+   if(ch == ']' || ch == '}'|| ch==')')
+    {
+       if(s1.empty())
+       {
+         return false;
+       }
+char c = s1.top();
+     
+     if( (ch == ')' && c == '(') ||( ch == '}' && c == '{')
+       || (ch == ']' && c == '[' ) ) 
+     {
+      
+       s1.pop();
+   
+     }
+      else{return false;}
+       
+    }
+    }
+
+  if(s1.empty())  // " [[[[[[[ " for this condition
+  {
+  return true;
+    }
+  else
+  {
+    return false;
+  }
+    }
+
+
+
+
+int main() {
+
+
+  string s3 = "[{}]";
+
+ int n = s3.length();
+  cout<< validbrackets(s3, n);
+  }
