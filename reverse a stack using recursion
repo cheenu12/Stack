@@ -1,0 +1,26 @@
+//gfg : https://practice.geeksforgeeks.org/problems/reverse-a-stack/1
+
+void insertAtBottom(stack<int> &s3 , int element)
+{
+
+  stack<int> a ;
+
+ while(!s3.empty())
+    {
+      int c= s3.top();
+      a.push(c);
+        s3.pop();
+    }
+
+ 
+  a.push(element); //pushing the element 
+
+ while(!a.empty())
+    {
+      int f= a.top();
+      s3.push(f);
+      a.pop();
+    }
+
+
+}
