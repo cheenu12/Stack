@@ -1,0 +1,42 @@
+//gfg link :            https://practice.geeksforgeeks.org/problems/sort-a-stack/1
+//User function Template for C++
+
+void sortedinsert(stack<int> &s2 , int num )
+{
+    //base case
+    if(s2.empty() || (s2.top() < num))     // agar khali hai toh insert krdo
+    {                                       // or sorted way me krna hai toh jab uper wala number chota jo tabhi insert kro                            
+        s2.push(num);
+        return;
+    }
+    int n = s2.top();    // nhi toh uper wale ko side me rakhoo
+    s2.pop();            // or bhar nikal lo
+    
+    
+    sortedinsert(s2, num);        // baki elements se check krlo jab tak chota na mile 
+    s2.push(n);               // jab milgya toh bakio ko bhi push krdo.
+    
+    
+}
+void sortstack(stack<int> &s1)
+{
+  if(s1.empty())                    // jab tak sare elements bhar na aajye
+    {
+        return ;      
+    }
+    
+    int num = s1.top();             // top wale ko side me rakhlo 
+    s1.pop();                        // or pop krdo
+    //recursive call 
+    sortstack(s1);                    // sare elements ko side me rakho  
+     //insertion in a sorted way
+sortedinsert(s1 , num);            // badd me ik ik krke sorted way me insert krte jao
+}
+void SortedStack :: sort()
+{
+   //Your code here
+   // sare elements bhar nikaldo
+
+sortstack(s);   //just for simplecity
+
+}
