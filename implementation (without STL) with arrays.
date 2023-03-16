@@ -1,0 +1,87 @@
+//stack implementation using array..(class)
+
+#include<iostream>
+#include <stack>
+
+using namespace std;
+
+
+class Stack 
+{
+//properties
+public:
+
+int *arr;
+int size ;
+int top;
+
+Stack(int size)     //constructor called when object created in main function
+{
+  this->size = size;   
+  arr= new int[size];  //memorary provided  using (dynamically)
+  top= -1;
+}
+
+void push(int a)
+{
+  if(size - top > 1)
+  {
+    top++;
+    arr[top] = a;
+  }
+  else
+  cout<<"stack overflow"<<endl;
+}
+
+void pop()  // pop the topmost element
+{
+  if(top == -1 )
+  {
+    cout<<"underflow"<<endl;
+  }
+  else{
+    top--;
+  }
+  
+}
+bool empty()
+{
+  if(top == -1)
+  {
+ 
+    return true;
+  }
+  else
+  {
+    return false;
+}
+  }
+
+void toop()
+{
+  if(top == -1)
+  {
+    cout<<"underflow" <<endl;
+  }
+  else
+    cout<< arr[top]<<endl;
+  }
+
+};
+int main()
+
+{
+Stack sd(5);  //object created & constructor called
+sd.push(2);
+  sd.push(332);
+  sd.push(3);
+ if(sd.empty())
+ {
+   cout<<"its empty" <<endl;
+   
+ }
+   
+  else{
+   cout<<"not empty";
+    }
+}
